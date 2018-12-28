@@ -17,10 +17,10 @@ app.prepare().then(() => {
     if (pathname === '/') {
       return app.render(req, res, '/index', query)
     }
-    if (!pathname.startsWith('/_next')) {
-      return app.render(req, res, '/pkg', query)
+    if (/^_next|favicon.ico$/.test(pathname)) {
+      return handle(req, res, parsedUrl)
     }
-    return handle(req, res, parsedUrl)
+    return app.render(req, res, '/pkg', query)
   }).listen(port, err => {
     if (err) {
       throw err
