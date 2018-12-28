@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { get } from 'lodash-es'
 import { FaGithub, FaNpm } from 'react-icons/fa'
+import { parse } from 'url'
 
 function Index({ href }) {
   let [pkgName, setPkgName] = useState('')
-  let url = new URL(`/${pkgName}`, href)
+  let url = parse(`${href}/${pkgName}`)
 
   return (
     <>
