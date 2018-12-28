@@ -1,8 +1,7 @@
 {
-  "version": 2,
+  "version": 1,
   "name": "pkg-repo",
   "alias": "pkg-repo",
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
   "public": true,
   "github": {
     "enabled": true
