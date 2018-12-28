@@ -3,6 +3,7 @@ import Router from 'next/router'
 import axios from 'axios'
 import { get } from 'lodash-es'
 import { fromUrl } from 'hosted-git-info'
+import { parse } from 'url'
 
 const ErrorTypes = {
   Unauthorized: 'Unauthorized',
@@ -61,13 +62,7 @@ async function getPackageRepo(pkgName) {
 }
 
 function getPathname(asPath) {
-  let url = new URL(
-    asPath,
-    // Pass any valid URL as the second param.
-    // This is required by the URL constructor,
-    // even though we are only looking to parse the pathname.
-    'https://example.com'
-  )
+  let url = parse(asPath)
   return url.pathname
 }
 
