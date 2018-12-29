@@ -6,6 +6,7 @@ import { Container, InlineCode } from '@/components'
 
 function Index({ href, placeholder }) {
   let [pkgName, setPkgName] = useState('')
+  let disabled = !pkgName
 
   return (
     <Container>
@@ -29,27 +30,30 @@ function Index({ href, placeholder }) {
           😍
         </span>
       </p>
-      <div className='flex flex-row items-center f5'>
-        <div className='ph3 pv2 dib ba b--light-gray bg-light-gray br2 br--left'>
-          {href}/
+      <form disabled={disabled}>
+        <div className='flex flex-row items-center f5'>
+          <div className='ph3 pv2 dib ba b--light-gray bg-light-gray br2 br--left'>
+            {href}/
+          </div>
+          <input
+            className='input-reset pa2 ba b--light-gray'
+            type='text'
+            placeholder={placeholder}
+            value={pkgName}
+            onChange={e => setPkgName(e.target.value)}
+          />
+          <button
+            type='submit'
+            disabled={disabled}
+            className='ba b--light-gray br2 br--right ph3 pv2 dib bg-light-gray hover-bg-moon-gray pointer bg-animate'
+            onClick={() => {
+              Router.push(resolve(href, pkgName))
+            }}
+          >
+            Go
+          </button>
         </div>
-        <input
-          className='input-reset pa2 ba b--light-gray'
-          type='text'
-          placeholder={placeholder}
-          value={pkgName}
-          onChange={e => setPkgName(e.target.value)}
-        />
-        <button
-          disabled={!pkgName}
-          className='ba b--light-gray br2 br--right ph3 pv2 dib bg-light-gray hover-bg-moon-gray pointer bg-animate'
-          onClick={() => {
-            Router.push(resolve(href, pkgName))
-          }}
-        >
-          Go
-        </button>
-      </div>
+      </form>
     </Container>
   )
 }
