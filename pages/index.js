@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
-import { resolve } from 'url'
 import { get, sample } from 'lodash-es'
 import { Container, InlineCode } from '@/components'
 
-function Index({ href, placeholder }) {
+function Index({ host, placeholder }) {
   let [pkgName, setPkgName] = useState('')
   let disabled = !pkgName
 
@@ -33,7 +32,7 @@ function Index({ href, placeholder }) {
       <form disabled={disabled}>
         <div className='flex flex-row items-center f5'>
           <div className='ph3 pv2 dib ba b--light-gray bg-light-gray br2 br--left'>
-            {href}/
+            {host}/
           </div>
           <input
             className='input-reset pa2 ba b--light-gray'
@@ -47,7 +46,7 @@ function Index({ href, placeholder }) {
             disabled={disabled}
             className='ba b--light-gray br2 br--right ph3 pv2 dib bg-light-gray hover-bg-moon-gray pointer bg-animate'
             onClick={() => {
-              Router.push(resolve(href, pkgName))
+              Router.push(`/${pkgName}`)
             }}
           >
             Go
@@ -59,18 +58,17 @@ function Index({ href, placeholder }) {
 }
 
 Index.getInitialProps = async ({ req }) => {
-  function getHref() {
+  function getHost() {
     if (req) {
-      let protocol = get(req, 'connection.encrypted') ? 'https' : 'http'
-      let hostname = get(req, 'headers.host', '')
-      return `${protocol}://${hostname}`
+      let host = get(req, 'headers.host', '')
+      return host
     } else {
-      return get(window, 'location.href')
+      return get(window, 'location.host')
     }
   }
 
   return {
-    href: getHref(),
+    host: getHost(),
     placeholder: sample([
       'lodash',
       'express',
