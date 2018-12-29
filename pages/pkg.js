@@ -18,9 +18,7 @@ function Pkg({ pkgName, err }) {
 Pkg.getInitialProps = async ({ asPath, res }) => {
   function redirect(to) {
     if (res) {
-      res.writeHead(302, {
-        Location: to,
-      })
+      res.writeHead(302, { Location: to })
       res.end()
     } else {
       Router.push(to)

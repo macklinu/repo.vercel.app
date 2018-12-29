@@ -3,24 +3,22 @@ import { get } from 'lodash-es'
 import { ErrorTypes } from '@/models'
 import { parseRepoUrl } from '@/utils'
 
+const statusToErrorType = {
+  401: ErrorTypes.Unauthorized,
+  404: ErrorTypes.PackageNotFound,
+}
+
 export default async function getPackageRepo(pkgName) {
   try {
-    let { data } = await axios.get(
-      `https://registry.npmjs.org/${encodeURIComponent(pkgName)}`
-    )
-    let repoUrl = get(data, 'repository.url', '')
-    let repo = parseRepoUrl(repoUrl)
+    let url = `https://registry.npmjs.org/${encodeURIComponent(pkgName)}`
+    let { data } = await axios.get(url)
+    let repo = parseRepoUrl(get(data, 'repository.url', ''))
     return repo ? { repo } : { err: ErrorTypes.PackageMissingRepo }
-  } catch (err) {
-    console.error(err.message)
-    let status = get(err, 'response.status')
+  } catch (error) {
+    console.error(error.message)
+    let status = get(error, 'response.status')
     return {
-      err:
-        status === 401
-          ? ErrorTypes.Unauthorized
-          : status === 404
-          ? ErrorTypes.PackageNotFound
-          : ErrorTypes.UnknownError,
+      err: statusToErrorType[status] || ErrorTypes.UnknownError,
     }
   }
 }
