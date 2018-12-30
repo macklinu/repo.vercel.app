@@ -1,14 +1,14 @@
 const { createServer } = require('http')
 const { parse } = require('url')
-const index = require('./src/functions/index')
-const pkg = require('./src/functions/pkg')
+const { createReadStream } = require('fs')
+const pkg = require('./pkg')
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000
 
 createServer((req, res) => {
   let { pathname } = parse(req.url)
   if (pathname === '/') {
-    return index(req, res)
+    return createReadStream('./index.html').pipe(res)
   } else {
     return pkg(req, res)
   }

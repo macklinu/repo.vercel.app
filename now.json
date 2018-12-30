@@ -3,10 +3,13 @@
   "name": "repo",
   "alias": "repo",
   "public": true,
-  "builds": [{ "src": "src/functions/*.js", "use": "@now/node" }],
+  "builds": [
+    { "src": "index.html", "use": "@now/html-minifier" },
+    { "src": "pkg.js", "use": "@now/node" }
+  ],
   "routes": [
-    { "src": "^/$", "methods": ["GET"], "dest": "/src/functions/index.js" },
-    { "src": "^/(.*)$", "methods": ["GET"], "dest": "/src/functions/pkg.js" }
+    { "src": "^/$", "methods": ["GET"], "dest": "/index.html" },
+    { "src": "^/(.*)$", "methods": ["GET"], "dest": "/pkg.js" }
   ],
   "github": {
     "enabled": true

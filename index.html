@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"
+    />
+    <title>repo</title>
+  </head>
+  <body class="sans-serif">
+    <main class="mw5 mw7-ns center pa3 ph5-ns">
+      <h1 class="mt0 f1 lh-title">repo</h1>
+      <p class="f4 lh-copy">
+        <span class="mr1" role="img" aria-label="Magnifying Glass">🔎</span>Find
+        the repo for any npm package name.
+      </p>
+      <p class="f5 lh-copy">
+        You can append <code class="dib code">/:pkg</code> to this URL,
+        where&nbsp;<code class="dib code">:pkg</code> is the name of any npm
+        package, and if that package has a repository associated with it, you
+        will be redirected to the repo.
+      </p>
+      <div class="flex flex-row items-center f5">
+        <div class="ph3 pv2 dib ba b--light-gray bg-light-gray br2 br--left">
+          repo.now.sh/
+        </div>
+        <input
+          id="pkg-input"
+          class="input-reset pa2 ba b--light-gray"
+          type="text"
+          placeholder=""
+        />
+        <button
+          id="pkg-submit-button"
+          type="submit"
+          class="ba b--light-gray br2 br--right ph3 pv2 dib bg-light-gray hover-bg-moon-gray pointer bg-animate"
+        >
+          Go
+        </button>
+      </div>
+    </main>
+  </body>
+  <script async defer>
+    ;(function() {
+      function sample(array) {
+        var index = Math.floor(Math.random() * array.length)
+        return array[index]
+      }
+
+      var pkgInput = document.getElementById('pkg-input')
+
+      pkgInput.placeholder = sample([
+        'lodash',
+        'express',
+        'tachyons',
+        'react',
+        'eslint',
+        '@zeit/ncc',
+        '@types/react',
+      ])
+
+      document
+        .getElementById('pkg-submit-button')
+        .addEventListener('click', function() {
+          console.log(pkgInput.value)
+        })
+    })()
+  </script>
+</html>

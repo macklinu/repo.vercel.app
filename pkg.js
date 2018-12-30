@@ -1,6 +1,6 @@
 const url = require('url')
-const getPackageRepo = require('../api/getPackageRepo')
-const html = require('../utils/html')
+const getPackageRepo = require('./lib/api/getPackageRepo')
+const html = require('./lib/utils/html')
 
 function Pkg({ pkg }) {
   return html`
