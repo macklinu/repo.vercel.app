@@ -1,30 +1,20 @@
-import { createServer } from 'http'
-import { parse } from 'url'
-import next from 'next'
+const { createServer } = require('http')
+const { parse } = require('url')
+const index = require('./functions/index')
+const pkg = require('./functions/pkg')
 
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
 const port = process.env.PORT ? Number(process.env.PORT) : 3000
 
-app.prepare().then(() => {
-  createServer((req, res) => {
-    // Be sure to pass `true` as the second argument to `url.parse`.
-    // This tells it to parse the query portion of the URL.
-    const parsedUrl = parse(req.url, true)
-    const { pathname, query } = parsedUrl
-
-    if (pathname === '/') {
-      return app.render(req, res, '/index', query)
-    }
-    if (/^_next|favicon.ico$/.test(pathname)) {
-      return handle(req, res, parsedUrl)
-    }
-    return app.render(req, res, '/pkg', query)
-  }).listen(port, err => {
-    if (err) {
-      throw err
-    }
-    console.log(`> Ready on http://localhost:${port}`)
-  })
+createServer((req, res) => {
+  let { pathname } = parse(req.url)
+  if (pathname === '/') {
+    return index(req, res)
+  } else {
+    return pkg(req, res)
+  }
+}).listen(port, err => {
+  if (err) {
+    throw err
+  }
+  console.log(`> Ready on http://localhost:${port}`)
 })

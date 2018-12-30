@@ -1,8 +1,13 @@
 {
-  "version": 1,
-  "name": "pkg-repo",
-  "alias": "pkg-repo",
+  "version": 2,
+  "name": "repo",
+  "alias": "repo",
   "public": true,
+  "builds": [{ "src": "functions/*.js", "use": "@now/node" }],
+  "routes": [
+    { "src": "/", "methods": ["GET"], "route": "/functions/index" },
+    { "src": "/:pkg", "methods": ["GET"], "route": "/functions/pkg" }
+  ],
   "github": {
     "enabled": true
   }
