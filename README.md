@@ -1,4 +1,4 @@
-# pkg-repo
+# repo
 
 > A service to help you find the repository for an npm package
 

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   Unauthorized: 'Unauthorized',
   PackageMissingRepo: 'PackageMissingRepo',
   PackageNotFound: 'PackageNotFound',

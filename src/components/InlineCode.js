@@ -1,5 +1,7 @@
-import React from 'react'
+const html = require('../utils/html')
 
-export default function InlineCode({ children }) {
-  return <code className='dib code'>{children}</code>
+module.exports = function InlineCode({ children }) {
+  return html`
+    <code className="dib code">${children}</code>
+  `
 }

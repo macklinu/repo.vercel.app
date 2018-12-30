@@ -1,7 +1,7 @@
 const { createServer } = require('http')
 const { parse } = require('url')
-const index = require('./functions/index')
-const pkg = require('./functions/pkg')
+const index = require('./src/functions/index')
+const pkg = require('./src/functions/pkg')
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000
 
@@ -16,5 +16,5 @@ createServer((req, res) => {
   if (err) {
     throw err
   }
-  console.log(`> Ready on http://localhost:${port}`)
+  console.log(`> Listening on port ${port}`)
 })
