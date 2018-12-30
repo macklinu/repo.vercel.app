@@ -1,4 +1,3 @@
-const ReactDOMServer = require('react-dom/server')
 const url = require('url')
 const getPackageRepo = require('../api/getPackageRepo')
 const html = require('../utils/html')
@@ -21,7 +20,7 @@ module.exports = async (req, res) => {
   } else {
     console.error({ err })
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-    ReactDOMServer.renderToNodeStream(
+    res.end(
       html`
         <html lang="en">
           <head>
@@ -32,11 +31,11 @@ module.exports = async (req, res) => {
               href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"
             />
           </head>
-          <body className="sans-serif">
+          <body class="sans-serif">
             <${Pkg} pkg=${pathname} />
           </body>
         </html>
       `
-    ).pipe(res)
+    )
   }
 }

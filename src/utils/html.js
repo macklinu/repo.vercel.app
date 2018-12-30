@@ -1,5 +1,5 @@
 const htm = require('htm')
-const React = require('react')
-const html = htm.bind(React.createElement)
+const h = require('vhtml')
+const html = htm.bind(h)
 
 module.exports = html
