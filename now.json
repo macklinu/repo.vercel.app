@@ -3,9 +3,10 @@
   "name": "repo",
   "alias": "repo",
   "public": true,
+  "builds": [{ "src": "functions/*.js", "use": "@now/node" }],
   "routes": [
-    { "src": "/", "methods": ["GET"], "dest": "/functions/index.js" },
-    { "src": "/(.*)", "methods": ["GET"], "dest": "/functions/pkg.js" }
+    { "src": "^/$", "methods": ["GET"], "dest": "/functions/index.js" },
+    { "src": "^/(.*)$", "methods": ["GET"], "dest": "/functions/pkg.js" }
   ],
   "github": {
     "enabled": true
