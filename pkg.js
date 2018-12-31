@@ -62,7 +62,7 @@ function createErrorComponent(err) {
             <p>
               ❌ <b>If ${pkg} is not private</b>, please\
               <a
-                href="https://github.com/macklinu/pkg-repo/issues/new"
+                href="https://github.com/macklinu/repo.now.sh/issues/new"
                 class="no-underline underline-hover link black bg-light-blue pa1"
                 >file an issue on repo.now.sh</a
               >, as this is an application error.
@@ -100,7 +100,7 @@ function createErrorComponent(err) {
             <p>
               ✅ <b>If there is a repository field</b>, please\
               <a
-                href="https://github.com/macklinu/pkg-repo/issues/new"
+                href="https://github.com/macklinu/repo.now.sh/issues/new"
                 class="no-underline underline-hover link black bg-light-blue pa1"
                 >file an issue on repo.now.sh</a
               >, as this is an application error.
@@ -136,7 +136,7 @@ function createErrorComponent(err) {
             <p>
               ✅ <b>If the package exists</b>, please\
               <a
-                href="https://github.com/macklinu/pkg-repo/issues/new"
+                href="https://github.com/macklinu/repo.now.sh/issues/new"
                 class="no-underline underline-hover link black bg-light-blue pa1"
                 >file an issue on repo.now.sh</a
               >, as this is an application error.
@@ -160,7 +160,7 @@ function createErrorComponent(err) {
               <p>
                 ✅ Please\
                 <a
-                  href="https://github.com/macklinu/pkg-repo/issues/new"
+                  href="https://github.com/macklinu/repo.now.sh/issues/new"
                   class="no-underline underline-hover link black bg-light-blue pa1"
                   >file an issue on repo.now.sh</a
                 >, as this is an application error.
