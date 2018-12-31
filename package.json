@@ -1,36 +1,28 @@
 {
-  "name": "pkg-repo",
+  "name": "repo.now.sh",
+  "description": "A service to help you find the repository for an npm package",
   "private": true,
   "version": "0.0.0-not-published",
   "license": "MIT",
+  "homepage": "https://repo.now.sh",
+  "author": "Mackie Underdown <macklinu@gmail.com>",
+  "repository": "macklinu/repo.now.sh",
   "scripts": {
-    "dev": "node -r esm server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node -r esm server.js",
+    "dev": "nodemon server.js",
     "test": "jest"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "axios": "^0.18.0",
-    "esm": "^3.0.84",
     "git-url-parse": "^11.1.1",
-    "lodash-es": "^4.17.11",
-    "next": "^7.0.2",
-    "normalize.css": "^8.0.1",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
-    "react-icons": "^3.2.2",
-    "tachyons": "^4.11.1"
+    "htm": "^2.0.0",
+    "lodash": "^4.17.11",
+    "vhtml": "^2.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "cssnano": "^4.1.8",
     "eslint": "^5.11.1",
     "eslint-config-macklinu": "^1.2.0",
     "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
     "prettier": "^1.15.3"
   }
 }

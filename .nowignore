@@ -1,0 +1,7 @@
+node_modules
+.eslintrc.json
+.prettierrc
+LICENSE
+README.md
+server.js
+*.test.js

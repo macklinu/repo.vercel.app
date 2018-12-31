@@ -1,8 +1,16 @@
 {
-  "version": 1,
-  "name": "pkg-repo",
-  "alias": "pkg-repo",
+  "version": 2,
+  "name": "repo",
+  "alias": "repo",
   "public": true,
+  "builds": [
+    { "src": "index.html", "use": "@now/html-minifier" },
+    { "src": "pkg.js", "use": "@now/node" }
+  ],
+  "routes": [
+    { "src": "^/$", "methods": ["GET"], "dest": "/index.html" },
+    { "src": "^/(.*)$", "methods": ["GET"], "dest": "/pkg.js" }
+  ],
   "github": {
     "enabled": true
   }
