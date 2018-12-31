@@ -4,7 +4,7 @@
   "alias": "repo",
   "public": true,
   "builds": [
-    { "src": "index.html", "use": "@now/html-minifier" },
+    { "src": "index.html", "use": "@now/static" },
     { "src": "pkg.js", "use": "@now/node" }
   ],
   "routes": [
