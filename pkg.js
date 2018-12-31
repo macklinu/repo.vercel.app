@@ -53,7 +53,7 @@ function createErrorComponent(err) {
     }
     case ErrorTypes.PackageMissingRepo: {
       return ({ pkg }) => html`
-        <main class="f3 lh-copy">
+        <section class="f3 lh-copy">
           <p>
             It looks like <span class="b">${pkg}</span> doesn't have a
             repository defined in its package.json.
@@ -96,17 +96,36 @@ function createErrorComponent(err) {
               >.
             </p>
           </section>
-        </main>
+        </section>
       `
     }
     case ErrorTypes.PackageNotFound: {
       return ({ pkg }) => html`
-        <section>
-          <p class="f3 lh-copy">
-            It looks like <span class="bg-light-blue pa1">${pkg}</span> wasn't
-            found in the npm registry.
-          </p>
-          <p class="f3 lh-copy">Here's how you can help!</p>
+        <section class="f3 lh-copy">
+          <p>It looks like <b>${pkg}</b> wasn't found in the npm registry.</p>
+          <p>Here's how you can help! 🙏</p>
+          <section class="f4 lh-copy measure">
+            <p>
+              Confirm\
+              <a
+                href="https://www.npmjs.com/package/${pkg}"
+                class="no-underline underline-hover link black bg-light-blue pa1"
+                >${pkg}</a
+              >\ exists on npm's website.
+            </p>
+            <p>
+              ✅ <b>If the package exists</b>, please\
+              <a
+                href="https://github.com/macklinu/pkg-repo/issues/new"
+                class="no-underline underline-hover link black bg-light-blue pa1"
+                >file an issue on repo.now.sh</a
+              >, as this is an application error.
+            </p>
+            <p>
+              ❌ <b>If the package does not exist</b>, sorry, I don't know what
+              to tell you.
+            </p>
+          </section>
         </section>
       `
     }
