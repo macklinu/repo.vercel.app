@@ -151,9 +151,22 @@ function createErrorComponent(err) {
     }
     case ErrorTypes.UnknownError:
     default:
-      return ({ pkg }) =>
+      return () =>
         html`
-          ${err}
+          <section class="f3 lh-copy">
+            <p>It looks like something went wrong. 😅</p>
+            <p>Here's how you can help! 🙏</p>
+            <section class="f4 lh-copy measure">
+              <p>
+                ✅ Please\
+                <a
+                  href="https://github.com/macklinu/pkg-repo/issues/new"
+                  class="no-underline underline-hover link black bg-light-blue pa1"
+                  >file an issue on repo.now.sh</a
+                >, as this is an application error.
+              </p>
+            </section>
+          </section>
         `
   }
 }
