@@ -48,7 +48,27 @@ function createErrorComponent(err) {
   switch (err) {
     case ErrorTypes.Unauthorized: {
       return ({ pkg }) => html`
-        ${err}
+        <section class="f3 lh-copy">
+          <p>
+            It looks like I was unauthorized to fetch\
+            <span class="b">${pkg}</span> from the npm registry.
+          </p>
+          <p>Here's how you can help! 🙏</p>
+          <section class="f4 lh-copy measure">
+            <p>
+              ✅ <b>If ${pkg} is private</b>, sorry, private packages are not
+              supported by repo.now.sh at this time.
+            </p>
+            <p>
+              ❌ <b>If ${pkg} is not private</b>, please\
+              <a
+                href="https://github.com/macklinu/pkg-repo/issues/new"
+                class="no-underline underline-hover link black bg-light-blue pa1"
+                >file an issue on repo.now.sh</a
+              >, as this is an application error.
+            </p>
+          </section>
+        </section>
       `
     }
     case ErrorTypes.PackageMissingRepo: {
