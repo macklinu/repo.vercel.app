@@ -9,65 +9,97 @@
       type="text/css"
       href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"
     />
-    <title>repo</title>
+    <style>
+      .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+      }
+      @keyframes octocat-wave {
+        0%,
+        100% {
+          transform: rotate(0);
+        }
+        20%,
+        60% {
+          transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+          transform: rotate(10deg);
+        }
+      }
+      @media (max-width: 500px) {
+        .github-corner:hover .octo-arm {
+          animation: none;
+        }
+        .github-corner .octo-arm {
+          animation: octocat-wave 560ms ease-in-out;
+        }
+      }
+    </style>
+    <title>repo.now.sh</title>
   </head>
   <body class="sans-serif">
-    <main class="mw5 mw7-ns center pa3 ph5-ns">
-      <h1 class="mt0 f1 lh-title">repo</h1>
-      <p class="f4 lh-copy">
+    <a
+      href="https://github.com/macklinu/repo"
+      class="github-corner"
+      aria-label="View source on GitHub"
+      ><svg
+        width="80"
+        height="80"
+        viewBox="0 0 250 250"
+        style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+        aria-hidden="true"
+      >
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor"
+          style="transform-origin: 130px 106px;"
+          class="octo-arm"
+        ></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor"
+          class="octo-body"
+        ></path>
+      </svg>
+    </a>
+    <main class="pa3 ph5-ns">
+      <h1 class="f-headline-l f1 lh-solid">repo.now.sh</h1>
+      <p class="f3 lh-copy">
         <span class="mr1" role="img" aria-label="Magnifying Glass">🔎</span>Find
-        the repo for any npm package name.
+        the repo for any npm package name. Just append
+        <code class="dib code">/:pkg-name</code> to the URL.
       </p>
-      <p class="f5 lh-copy">
-        You can append <code class="dib code">/:pkg</code> to this URL,
-        where&nbsp;<code class="dib code">:pkg</code> is the name of any npm
-        package, and if that package has a repository associated with it, you
-        will be redirected to the repo.
-      </p>
-      <div class="flex flex-row items-center f5">
-        <div class="ph3 pv2 dib ba b--light-gray bg-light-gray br2 br--left">
-          repo.now.sh/
-        </div>
-        <input
-          id="pkg-input"
-          class="input-reset pa2 ba b--light-gray"
-          type="text"
-          placeholder=""
-        />
-        <button
-          id="pkg-submit-button"
-          type="submit"
-          class="ba b--light-gray br2 br--right ph3 pv2 dib bg-light-gray hover-bg-moon-gray pointer bg-animate"
-        >
-          Go
-        </button>
-      </div>
+      <h2 class="f2 lh-title">Try It</h2>
+      <ul class="list pl0 f2">
+        <li>
+          <a class="no-underline underline-hover link black" href="/lodash"
+            ><span class="bg-light-red lh-copy pa1">
+              repo.now.sh/lodash
+            </span></a
+          >
+        </li>
+        <li>
+          <a class="no-underline underline-hover link black" href="/express"
+            ><span class="bg-light-green lh-copy pa1">
+              repo.now.sh/express
+            </span></a
+          >
+        </li>
+        <li>
+          <a class="no-underline underline-hover link black" href="/@babel/core"
+            ><span class="bg-light-blue lh-copy pa1">
+              repo.now.sh/@babel/core
+            </span></a
+          >
+        </li>
+        <li>
+          <a class="no-underline underline-hover link black" href="/@zeit/ncc"
+            ><span class="bg-gold lh-copy pa1">repo.now.sh/@zeit/ncc</span></a
+          >
+        </li>
+      </ul>
     </main>
   </body>
-  <script async defer>
-    ;(function() {
-      function sample(array) {
-        var index = Math.floor(Math.random() * array.length)
-        return array[index]
-      }
-
-      var pkgInput = document.getElementById('pkg-input')
-
-      pkgInput.placeholder = sample([
-        'lodash',
-        'express',
-        'tachyons',
-        'react',
-        'eslint',
-        '@zeit/ncc',
-        '@types/react',
-      ])
-
-      document
-        .getElementById('pkg-submit-button')
-        .addEventListener('click', function() {
-          console.log(pkgInput.value)
-        })
-    })()
-  </script>
 </html>
