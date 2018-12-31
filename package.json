@@ -1,8 +1,12 @@
 {
-  "name": "pkg-repo",
+  "name": "repo.now.sh",
+  "description": "A service to help you find the repository for an npm package",
   "private": true,
   "version": "0.0.0-not-published",
   "license": "MIT",
+  "homepage": "https://repo.now.sh",
+  "author": "Mackie Underdown <macklinu@gmail.com>",
+  "repository": "macklinu/repo.now.sh",
   "scripts": {
     "dev": "nodemon server.js",
     "test": "jest"
