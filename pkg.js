@@ -25,6 +25,11 @@ module.exports = async (req, res) => {
               content="width=device-width, initial-scale=1.0"
             />
             <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+            <link rel="shortcut icon" href="https://file-qhodtymqhu.now.sh" />
+            <link
+              rel="apple-touch-icon"
+              href="https://file-kxijpkqsxm.now.sh/"
+            />
             <link
               rel="stylesheet"
               type="text/css"
