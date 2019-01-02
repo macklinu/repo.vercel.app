@@ -83,7 +83,7 @@ function createErrorComponent(err) {
             <p>
               Confirm\
               <a
-                href="https://www.npmjs.com/package/${pkg}"
+                href=${`https://www.npmjs.com/package/${pkg}`}
                 class="no-underline underline-hover link black bg-light-blue pa1"
                 >${pkg}</a
               >\ exists on npm's website.
@@ -128,7 +128,7 @@ function createErrorComponent(err) {
             <p>
               Confirm\
               <a
-                href="https://www.npmjs.com/package/${pkg}"
+                href=${`https://www.npmjs.com/package/${pkg}`}
                 class="no-underline underline-hover link black bg-light-blue pa1"
                 >${pkg}</a
               >\ exists on npm's website.
