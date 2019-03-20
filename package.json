@@ -9,7 +9,8 @@
   "repository": "macklinu/repo.now.sh",
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint '*.js' 'lib/**/*.js'"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -19,10 +20,10 @@
     "vhtml": "^2.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.11.1",
-    "eslint-config-macklinu": "^1.2.0",
+    "eslint": "^5.15.3",
+    "eslint-config-macklinu": "^1.4.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.9",
-    "prettier": "^1.15.3"
+    "prettier": "^1.16.4"
   }
 }

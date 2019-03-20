@@ -3,53 +3,7 @@ const getPackageRepo = require('./lib/api/getPackageRepo')
 const ErrorTypes = require('./lib/models/ErrorTypes')
 const html = require('./lib/utils/html')
 
-module.exports = async (req, res) => {
-  let { pathname } = url.parse(req.url, true)
-
-  let pkg = pathname.substring(1)
-  let { repo, err } = await getPackageRepo(pkg)
-
-  if (repo) {
-    res.writeHead(302, { Location: repo })
-    res.end()
-  } else {
-    let ErrorComponent = createErrorComponent(err)
-    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-    res.end(
-      html`
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8" />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0"
-            />
-            <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-            <link rel="shortcut icon" href="https://file-qhodtymqhu.now.sh" />
-            <link
-              rel="apple-touch-icon"
-              href="https://file-kxijpkqsxm.now.sh/"
-            />
-            <link
-              rel="stylesheet"
-              type="text/css"
-              href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"
-            />
-            <title>repo.now.sh: ${pkg}</title>
-          </head>
-          <body class="sans-serif">
-            <main class="pa3 ph5-ns">
-              <h1 class="f-headline-l f1 lh-solid">Uh oh!</h1>
-              <${ErrorComponent} pkg=${pkg} />
-            </main>
-          </body>
-        </html>
-      `
-    )
-  }
-}
-
-function createErrorComponent(err) {
+const createErrorComponent = err => {
   switch (err) {
     case ErrorTypes.Unauthorized: {
       return ({ pkg }) => html`
@@ -175,3 +129,51 @@ function createErrorComponent(err) {
         `
   }
 }
+
+const repoHandler = async (req, res) => {
+  const { pathname } = url.parse(req.url, true)
+
+  const pkg = pathname.substring(1)
+  const { repo, err } = await getPackageRepo(pkg)
+
+  if (repo) {
+    res.writeHead(302, { Location: repo })
+    res.end()
+  } else {
+    const ErrorComponent = createErrorComponent(err)
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+    res.end(
+      html`
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+            <link rel="shortcut icon" href="https://file-qhodtymqhu.now.sh" />
+            <link
+              rel="apple-touch-icon"
+              href="https://file-kxijpkqsxm.now.sh/"
+            />
+            <link
+              rel="stylesheet"
+              type="text/css"
+              href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"
+            />
+            <title>repo.now.sh: ${pkg}</title>
+          </head>
+          <body class="sans-serif">
+            <main class="pa3 ph5-ns">
+              <h1 class="f-headline-l f1 lh-solid">Uh oh!</h1>
+              <${ErrorComponent} pkg=${pkg} />
+            </main>
+          </body>
+        </html>
+      `
+    )
+  }
+}
+
+module.exports = repoHandler
