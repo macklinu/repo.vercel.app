@@ -5,3 +5,4 @@ LICENSE
 README.md
 server.js
 *.test.js
+cypress/

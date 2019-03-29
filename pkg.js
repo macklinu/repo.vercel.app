@@ -33,7 +33,7 @@ const createErrorComponent = err => {
     case ErrorTypes.PackageMissingRepo: {
       return ({ pkg }) => html`
         <section class="f3 lh-copy">
-          <p>
+          <p data-testid="error-message">
             It looks like <span class="b">${pkg}</span> doesn't have a
             repository defined in its package.json.
           </p>

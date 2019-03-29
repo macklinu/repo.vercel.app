@@ -8,9 +8,13 @@
   "author": "Mackie Underdown <macklinu@gmail.com>",
   "repository": "macklinu/repo.now.sh",
   "scripts": {
-    "dev": "nodemon server.js",
-    "test": "jest",
-    "lint": "eslint '*.js' 'lib/**/*.js'"
+    "dev": "PORT=4000 nodemon server.js",
+    "start": "PORT=8484 node server.js",
+    "test": "yarn run test:unit && yarn run test:e2e",
+    "test:unit": "jest",
+    "test:e2e": "start-server-and-test start http://localhost:8484 cypress",
+    "cypress": "cypress run",
+    "lint": "eslint 'cypress/**/*.js' '*.js' 'lib/**/*.js'"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -20,10 +24,17 @@
     "vhtml": "^2.1.0"
   },
   "devDependencies": {
+    "cypress": "^3.2.0",
     "eslint": "^5.15.3",
     "eslint-config-macklinu": "^1.4.0",
     "jest": "^24.5.0",
     "nodemon": "^1.18.9",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "start-server-and-test": "^1.7.12"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/cypress"
+    ]
   }
 }

@@ -10,6 +10,7 @@ const port = process.env.PORT ? Number(process.env.PORT) : 3000
 createServer((req, res) => {
   const { pathname } = parse(req.url)
   if (pathname === '/') {
+    res.writeHead(200, { 'content-type': 'text/html' })
     return createReadStream('./index.html').pipe(res)
   } else {
     return pkg(req, res)
