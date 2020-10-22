@@ -14,7 +14,7 @@ createServer((req, res) => {
   } else {
     return pkg(req, res)
   }
-}).listen(port, err => {
+}).listen(port, (err) => {
   if (err) {
     throw err
   }

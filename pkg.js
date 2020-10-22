@@ -3,9 +3,10 @@ const getPackageRepo = require('./lib/api/getPackageRepo')
 const ErrorTypes = require('./lib/models/ErrorTypes')
 const html = require('./lib/utils/html')
 
-const createErrorComponent = err => {
+const createErrorComponent = (err) => {
   switch (err) {
     case ErrorTypes.Unauthorized: {
+      // prettier-ignore
       return ({ pkg }) => html`
         <section class="f3 lh-copy">
           <p>
@@ -31,6 +32,7 @@ const createErrorComponent = err => {
       `
     }
     case ErrorTypes.PackageMissingRepo: {
+      // prettier-ignore
       return ({ pkg }) => html`
         <section class="f3 lh-copy">
           <p>
@@ -79,6 +81,7 @@ const createErrorComponent = err => {
       `
     }
     case ErrorTypes.PackageNotFound: {
+      // prettier-ignore
       return ({ pkg }) => html`
         <section class="f3 lh-copy">
           <p>It looks like <b>${pkg}</b> wasn't found in the npm registry.</p>
@@ -110,6 +113,7 @@ const createErrorComponent = err => {
     }
     case ErrorTypes.UnknownError:
     default:
+      // prettier-ignore
       return () =>
         html`
           <section class="f3 lh-copy">
