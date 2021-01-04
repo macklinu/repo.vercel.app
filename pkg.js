@@ -8,7 +8,7 @@ const createErrorComponent = err => {
     case ErrorTypes.Unauthorized: {
       return ({ pkg }) => html`
         <section class="f3 lh-copy">
-          <p>
+          <p data-testid="error-message">
             It looks like I was unauthorized to fetch\
             <span class="b">${pkg}</span> from the npm registry.
           </p>
@@ -81,7 +81,9 @@ const createErrorComponent = err => {
     case ErrorTypes.PackageNotFound: {
       return ({ pkg }) => html`
         <section class="f3 lh-copy">
-          <p>It looks like <b>${pkg}</b> wasn't found in the npm registry.</p>
+          <p data-testid="error-message">
+            It looks like <b>${pkg}</b> wasn't found in the npm registry.
+          </p>
           <p>Here's how you can help! 🙏</p>
           <section class="f4 lh-copy measure">
             <p>
@@ -113,7 +115,9 @@ const createErrorComponent = err => {
       return () =>
         html`
           <section class="f3 lh-copy">
-            <p>It looks like something went wrong. 😅</p>
+            <p data-testid="error-message">
+              It looks like something went wrong. 😅
+            </p>
             <p>Here's how you can help! 🙏</p>
             <section class="f4 lh-copy measure">
               <p>

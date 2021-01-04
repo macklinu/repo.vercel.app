@@ -24,13 +24,13 @@
     "vhtml": "^2.1.0"
   },
   "devDependencies": {
-    "cypress": "^3.2.0",
+    "cypress": "^6.2.0",
     "eslint": "^5.15.3",
     "eslint-config-macklinu": "^1.4.0",
     "jest": "^24.5.0",
     "nodemon": "^1.18.9",
     "prettier": "^1.16.4",
-    "start-server-and-test": "^1.7.12"
+    "start-server-and-test": "^1.11.7"
   },
   "jest": {
     "testPathIgnorePatterns": [
