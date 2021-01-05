@@ -1,6 +1,6 @@
-const gitUrlParse = require('git-url-parse')
+import gitUrlParse from 'git-url-parse'
 
-const parseRepoUrl = (url) => {
+const parseRepoUrl = (url: string | undefined): string | undefined => {
   if (!url) {
     return undefined
   }
@@ -15,4 +15,4 @@ const parseRepoUrl = (url) => {
   return gitUrlParse.stringify(parsed, 'https')
 }
 
-module.exports = parseRepoUrl
+export default parseRepoUrl

@@ -1,4 +1,4 @@
-const parseRepoUrl = require('./parseRepoUrl')
+import parseRepoUrl from './parseRepoUrl'
 
 test.each([
   [undefined, undefined],
