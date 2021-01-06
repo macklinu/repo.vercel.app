@@ -6,6 +6,7 @@
 
 ## Develop
 
+- `nvm use` - use the Node.js version defined in `.nvmrc`
 - `yarn` - install dependencies
 - `yarn dev` - start the dev server
 
