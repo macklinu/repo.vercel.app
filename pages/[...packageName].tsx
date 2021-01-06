@@ -15,7 +15,7 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
     case ErrorType.Unauthorized:
       return (
         <section className='f3 lh-copy'>
-          <p>
+          <p data-testid='error-message'>
             It looks like I was unauthorized to fetch{' '}
             <span className='b'>{packageName}</span> from the npm registry.
           </p>
@@ -41,7 +41,7 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
     case ErrorType.PackageMissingRepo:
       return (
         <section className='f3 lh-copy'>
-          <p>
+          <p data-testid='error-message'>
             It looks like <span className='b'>{packageName}</span> doesn't have
             a repository defined in its package.json.
           </p>
@@ -90,7 +90,7 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
     case ErrorType.PackageNotFound:
       return (
         <section className='f3 lh-copy'>
-          <p>
+          <p data-testid='error-message'>
             It looks like <b>{packageName}</b> wasn't found in the npm registry.
           </p>
           <p>Here's how you can help! 🙏</p>
@@ -125,7 +125,9 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
     case ErrorType.UnknownError:
       return (
         <section className='f3 lh-copy'>
-          <p>It looks like something went wrong. 😅</p>
+          <p data-testid='error-message'>
+            It looks like something went wrong. 😅
+          </p>
           <p>Here's how you can help! 🙏</p>
           <section className='f4 lh-copy measure'>
             <p>

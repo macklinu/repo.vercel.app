@@ -67,7 +67,9 @@ const IndexPage = () => (
     </SharedHead>
     <OctocatCorner />
     <main className='pa3 ph5-ns'>
-      <h1 className='f-headline-l f1 lh-solid'>repo.now.sh</h1>
+      <h1 className='f-headline-l f1 lh-solid' data-testid='app-title'>
+        repo.now.sh
+      </h1>
       <p className='f3 lh-copy'>
         <span className='mr1' role='img' aria-label='Magnifying Glass'>
           🔎
