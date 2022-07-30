@@ -1,6 +1,6 @@
 import axios from 'axios'
-import ErrorType from './ErrorType'
-import parseRepoUrl from './parseRepoUrl'
+import { ErrorType } from './ErrorType'
+import { parseRepoUrl } from './parseRepoUrl'
 
 const statusToErrorType = {
   401: ErrorType.Unauthorized,
@@ -11,7 +11,7 @@ type GetPackageRepoResult =
   | { status: 'success'; repo: string }
   | { status: 'error'; error: ErrorType }
 
-const getPackageRepo = async (
+export const getPackageRepo = async (
   packageName: string
 ): Promise<GetPackageRepoResult> => {
   try {
@@ -25,9 +25,7 @@ const getPackageRepo = async (
     const status = error.response?.status
     return {
       status: 'error',
-      error: statusToErrorType[status] || ErrorType.UnknownError,
+      error: statusToErrorType[status] ?? ErrorType.UnknownError,
     }
   }
 }
-
-export default getPackageRepo

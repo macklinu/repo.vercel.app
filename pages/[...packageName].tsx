@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Image from 'next/image'
 import type { GetServerSideProps } from 'next'
-import getPackageRepo from 'lib/getPackageRepo'
-import ErrorType from 'lib/ErrorType'
-import SharedHead from 'lib/SharedHead'
+import { getPackageRepo } from 'lib/getPackageRepo'
+import { ErrorType } from 'lib/ErrorType'
+import { SharedHead } from 'lib/SharedHead'
 
 interface ErrorComponentProps {
   packageName: string

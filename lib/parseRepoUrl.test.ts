@@ -1,4 +1,4 @@
-import parseRepoUrl from './parseRepoUrl'
+import { parseRepoUrl } from './parseRepoUrl'
 
 test.each([
   [undefined, undefined],
