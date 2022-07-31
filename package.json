@@ -17,7 +17,7 @@
     "test": "jest",
     "e2e": "start-test start 3000 cy:run",
     "e2e:dev": "start-test dev 3000 cy:open",
-    "cy:open": "cypress open",
+    "cy:open": "cypress open --config-file=cypress.config.ts",
     "cy:run": "cypress run",
     "lint": "next lint"
   },
