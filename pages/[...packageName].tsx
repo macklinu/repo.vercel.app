@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Image from 'next/image'
 import type { GetServerSideProps } from 'next'
-import getPackageRepo from 'lib/getPackageRepo'
-import ErrorType from 'lib/ErrorType'
-import SharedHead from 'lib/SharedHead'
+import { getPackageRepo } from 'lib/getPackageRepo'
+import { ErrorType } from 'lib/ErrorType'
+import { SharedHead } from 'lib/SharedHead'
 
 interface ErrorComponentProps {
   packageName: string
@@ -19,7 +19,7 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
             It looks like I was unauthorized to fetch{' '}
             <span className='b'>{packageName}</span> from the npm registry.
           </p>
-          <p>Here's how you can help! 🙏</p>
+          <p>Here&apos;s how you can help! 🙏</p>
           <section className='f4 lh-copy measure'>
             <p>
               ✅ <b>If {packageName} is private</b>, sorry, private packages are
@@ -42,10 +42,10 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
       return (
         <section className='f3 lh-copy'>
           <p data-testid='error-message'>
-            It looks like <span className='b'>{packageName}</span> doesn't have
-            a repository defined in its package.json.
+            It looks like <span className='b'>{packageName}</span> doesn&apos;t
+            have a repository defined in its package.json.
           </p>
-          <p>Here's how you can help! 🙏</p>
+          <p>Here&apos;s how you can help! 🙏</p>
           <section className='f4 lh-copy measure'>
             <p>
               Confirm{' '}
@@ -55,13 +55,18 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
               >
                 {packageName}
               </a>{' '}
-              exists on npm's website.
+              exists on npm&apos;s website.
             </p>
             <p>
               Do you see a <b>repository</b> field in the right-hand column of
               the npm package page?
             </p>
-            <Image src='/npm-screenshot.png' width={357} height={169} />
+            <Image
+              alt='screenshot of npm repository field'
+              src='/npm-screenshot.png'
+              width={357}
+              height={169}
+            />
             <p>
               ✅ <b>If there is a repository field</b>, please{' '}
               <a
@@ -74,7 +79,7 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
             </p>
             <p>
               ❌ <b>If there is not a repository field</b>, please find the
-              package's repo online and open a pull request adding the
+              package&apos;s repo online and open a pull request adding the
               repository field to its{' '}
               <a
                 href='https://docs.npmjs.com/files/package.json#repository'
@@ -91,9 +96,10 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
       return (
         <section className='f3 lh-copy'>
           <p data-testid='error-message'>
-            It looks like <b>{packageName}</b> wasn't found in the npm registry.
+            It looks like <b>{packageName}</b> wasn&apos;t found in the npm
+            registry.
           </p>
-          <p>Here's how you can help! 🙏</p>
+          <p>Here&apos;s how you can help! 🙏</p>
           <section className='f4 lh-copy measure'>
             <p>
               Confirm{' '}
@@ -103,7 +109,7 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
               >
                 {packageName}
               </a>{' '}
-              exists on npm's website.
+              exists on npm&apos;s website.
             </p>
             <p>
               ✅ <b>If the package exists</b>, please{' '}
@@ -116,8 +122,8 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
               , as this is an application error.
             </p>
             <p>
-              ❌ <b>If the package does not exist</b>, sorry, I don't know what
-              to tell you.
+              ❌ <b>If the package does not exist</b>, sorry, I don&apos;t know
+              what to tell you.
             </p>
           </section>
         </section>
@@ -128,7 +134,7 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
           <p data-testid='error-message'>
             It looks like something went wrong. 😅
           </p>
-          <p>Here's how you can help! 🙏</p>
+          <p>Here&apos;s how you can help! 🙏</p>
           <section className='f4 lh-copy measure'>
             <p>
               ✅ Please{' '}

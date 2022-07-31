@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-import SharedHead from 'lib/SharedHead'
+import { SharedHead } from 'lib/SharedHead'
 
 const OctocatCorner = () => (
   <a

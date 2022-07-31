@@ -5,7 +5,7 @@ interface SharedHeadProps {
   children: React.ReactNode | React.ReactNode[]
 }
 
-const SharedHead = ({ children }: SharedHeadProps) => (
+export const SharedHead = ({ children }: SharedHeadProps) => (
   <Head>
     <meta charSet='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -15,5 +15,3 @@ const SharedHead = ({ children }: SharedHeadProps) => (
     {children}
   </Head>
 )
-
-export default SharedHead

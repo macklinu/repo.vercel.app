@@ -1,8 +1,3 @@
 {
-  "extends": [
-    "macklinu",
-    "macklinu/react",
-    "macklinu/jest",
-    "macklinu/typescript"
-  ]
+  "extends": "next/core-web-vitals"
 }

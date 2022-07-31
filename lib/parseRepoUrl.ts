@@ -1,7 +1,16 @@
 import gitUrlParse from 'git-url-parse'
 
-const parseRepoUrl = (url: string | undefined): string | undefined => {
-  if (!url) {
+const isValidUrl = (url: string | undefined): boolean => {
+  try {
+    new URL(url)
+    return true
+  } catch {
+    return false
+  }
+}
+
+export const parseRepoUrl = (url: string | undefined): string | undefined => {
+  if (!url || !isValidUrl(url)) {
     return undefined
   }
   const parsed = gitUrlParse(url)
@@ -14,5 +23,3 @@ const parseRepoUrl = (url: string | undefined): string | undefined => {
   }
   return gitUrlParse.stringify(parsed, 'https')
 }
-
-export default parseRepoUrl
