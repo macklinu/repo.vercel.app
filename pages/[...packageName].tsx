@@ -23,15 +23,15 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
           <section className='f4 lh-copy measure'>
             <p>
               ✅ <b>If {packageName} is private</b>, sorry, private packages are
-              not supported by repo.now.sh at this time.
+              not supported by repo.vercel.app at this time.
             </p>
             <p>
               ❌ <b>If {packageName} is not private</b>, please{' '}
               <a
-                href='https://github.com/macklinu/repo.now.sh/issues/new'
+                href='https://github.com/macklinu/repo.vercel.app/issues/new'
                 className='no-underline underline-hover link black bg-light-blue pa1'
               >
-                file an issue on repo.now.sh
+                file an issue on repo.vercel.app
               </a>
               , as this is an application error.
             </p>
@@ -70,10 +70,10 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
             <p>
               ✅ <b>If there is a repository field</b>, please{' '}
               <a
-                href='https://github.com/macklinu/repo.now.sh/issues/new'
+                href='https://github.com/macklinu/repo.vercel.app/issues/new'
                 className='no-underline underline-hover link black bg-light-blue pa1'
               >
-                file an issue on repo.now.sh
+                file an issue on repo.vercel.app
               </a>
               , as this is an application error.
             </p>
@@ -114,10 +114,10 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
             <p>
               ✅ <b>If the package exists</b>, please{' '}
               <a
-                href='https://github.com/macklinu/repo.now.sh/issues/new'
+                href='https://github.com/macklinu/repo.vercel.app/issues/new'
                 className='no-underline underline-hover link black bg-light-blue pa1'
               >
-                file an issue on repo.now.sh
+                file an issue on repo.vercel.app
               </a>
               , as this is an application error.
             </p>
@@ -139,10 +139,10 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
             <p>
               ✅ Please{' '}
               <a
-                href='https://github.com/macklinu/repo.now.sh/issues/new'
+                href='https://github.com/macklinu/repo.vercel.app/issues/new'
                 className='no-underline underline-hover link black bg-light-blue pa1'
               >
-                file an issue on repo.now.sh
+                file an issue on repo.vercel.app
               </a>
               , as this is an application error.
             </p>
@@ -160,7 +160,7 @@ interface PackageNamePageProps {
 const PackageNamePage = ({ packageName, error }: PackageNamePageProps) => (
   <div className='sans-serif'>
     <SharedHead>
-      <title>{packageName} | repo.now.sh</title>
+      <title>{packageName} | repo.vercel.app</title>
     </SharedHead>
     <main className='pa3 ph5-ns'>
       <h1 className='f-headline-l f1 lh-solid'>Uh oh!</h1>

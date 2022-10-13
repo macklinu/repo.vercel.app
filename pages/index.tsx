@@ -4,7 +4,7 @@ import { SharedHead } from 'lib/SharedHead'
 
 const OctocatCorner = () => (
   <a
-    href='https://github.com/macklinu/repo.now.sh'
+    href='https://github.com/macklinu/repo.vercel.app'
     className='github-corner'
     aria-label='View source on GitHub'
   >
@@ -47,7 +47,7 @@ const ExampleLink = ({ packageName, backgroundColor }: ExampleLinkProps) => (
   <Link href={`/${packageName}`}>
     <a className='no-underline underline-hover link black'>
       <span className={`${backgroundColor} lh-copy pa1`}>
-        repo.now.sh/{packageName}
+        repo.vercel.app/{packageName}
       </span>
     </a>
   </Link>
@@ -63,12 +63,12 @@ const exampleLinks: ExampleLinkProps[] = [
 const IndexPage = () => (
   <div className='sans-serif'>
     <SharedHead>
-      <title>repo.now.sh</title>
+      <title>repo.vercel.app</title>
     </SharedHead>
     <OctocatCorner />
     <main className='pa3 ph5-ns'>
       <h1 className='f-headline-l f1 lh-solid' data-testid='app-title'>
-        repo.now.sh
+        repo.vercel.app
       </h1>
       <p className='f3 lh-copy'>
         <span className='mr1' role='img' aria-label='Magnifying Glass'>
