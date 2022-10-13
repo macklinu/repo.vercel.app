@@ -1,12 +1,12 @@
 {
-  "name": "repo.now.sh",
+  "name": "repo.vercel.app",
   "description": "A service to help you find the repository for an npm package",
   "private": true,
   "version": "0.0.0-not-published",
   "license": "MIT",
-  "homepage": "https://repo.now.sh",
+  "homepage": "https://repo.vercel.app",
   "author": "Mackie Underdown <macklinu@gmail.com>",
-  "repository": "macklinu/repo.now.sh",
+  "repository": "macklinu/repo.vercel.app",
   "engines": {
     "node": "~16"
   },

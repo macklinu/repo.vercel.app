@@ -1,9 +1,9 @@
 /* global cy */
 
-describe('repo.now.sh', () => {
+describe('repo.vercel.app', () => {
   it('can visit homepage', () => {
     cy.visit('/')
-    cy.get('[data-testid=app-title]').should('to.contain', 'repo.now.sh')
+    cy.get('[data-testid=app-title]').should('to.contain', 'repo.vercel.app')
   })
   it('redirects to GitHub project for valid repo', () => {
     cy.visit('/react')

@@ -1,8 +1,8 @@
-# [repo.now.sh](https://repo.now.sh)
+# [repo.vercel.app](https://repo.vercel.app)
 
 > A service to help you find the repository for an npm package
 
-[![repo.now.sh homepage screenshot](https://file-assxoaewwi.now.sh/)](https://repo.now.sh)
+[![repo.vercel.app homepage screenshot](https://file-assxoaewwi.now.sh/)](https://repo.vercel.app)
 
 ## Develop
 
