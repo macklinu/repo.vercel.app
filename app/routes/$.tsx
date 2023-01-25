@@ -1,44 +1,53 @@
-import * as React from 'react'
-import Image from 'next/image'
-import type { GetServerSideProps } from 'next'
-import { getPackageRepo } from 'lib/getPackageRepo'
-import { ErrorType } from 'lib/ErrorType'
-import { SharedHead } from 'lib/SharedHead'
+import type { LoaderArgs, MetaFunction } from '@remix-run/node'
+import { json, redirect } from '@remix-run/node'
+import { useCatch, useParams } from '@remix-run/react'
+import { z } from 'zod'
+import { getPackageRepo } from '~/getPackageRepo.server'
 
-interface ErrorComponentProps {
-  packageName: string
-  error: ErrorType
+const paramsSchema = z
+  .object({
+    '*': z.string(),
+  })
+  .transform((params) => ({
+    packageName: params['*'],
+  }))
+
+function usePackageNameParams() {
+  return paramsSchema.parse(useParams())
 }
 
-const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
-  switch (error) {
-    case ErrorType.Unauthorized:
-      return (
-        <section className='f3 lh-copy'>
-          <p data-testid='error-message'>
-            It looks like I was unauthorized to fetch{' '}
-            <span className='b'>{packageName}</span> from the npm registry.
-          </p>
-          <p>Here&apos;s how you can help! 🙏</p>
-          <section className='f4 lh-copy measure'>
-            <p>
-              ✅ <b>If {packageName} is private</b>, sorry, private packages are
-              not supported by repo.vercel.app at this time.
-            </p>
-            <p>
-              ❌ <b>If {packageName} is not private</b>, please{' '}
-              <a
-                href='https://github.com/macklinu/repo.vercel.app/issues/new'
-                className='no-underline underline-hover link black bg-light-blue pa1'
-              >
-                file an issue on repo.vercel.app
-              </a>
-              , as this is an application error.
-            </p>
-          </section>
-        </section>
-      )
-    case ErrorType.PackageMissingRepo:
+export const handle = {
+  pageTitle: 'Uh oh!',
+}
+
+export const meta: MetaFunction = ({ params }) => {
+  const { packageName } = paramsSchema.parse(params)
+
+  return {
+    title: `${packageName} | repo.vercel.app`,
+  }
+}
+
+export async function loader({ params }: LoaderArgs) {
+  const { packageName } = paramsSchema.parse(params)
+  const repoUrl = await getPackageRepo(packageName)
+  if (!repoUrl) {
+    throw json({ repoUrl: null })
+  }
+
+  return redirect(repoUrl)
+}
+
+export default function PackageRoute() {
+  return null
+}
+
+export function CatchBoundary() {
+  const { packageName } = usePackageNameParams()
+  const caught = useCatch()
+
+  switch (caught.status) {
+    case 200:
       return (
         <section className='f3 lh-copy'>
           <p data-testid='error-message'>
@@ -61,7 +70,7 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
               Do you see a <b>repository</b> field in the right-hand column of
               the npm package page?
             </p>
-            <Image
+            <img
               alt='screenshot of npm repository field'
               src='/npm-screenshot.png'
               width={357}
@@ -92,7 +101,33 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
           </section>
         </section>
       )
-    case ErrorType.PackageNotFound:
+    case 401:
+      return (
+        <section className='f3 lh-copy'>
+          <p data-testid='error-message'>
+            It looks like I was unauthorized to fetch{' '}
+            <span className='b'>{packageName}</span> from the npm registry.
+          </p>
+          <p>Here&apos;s how you can help! 🙏</p>
+          <section className='f4 lh-copy measure'>
+            <p>
+              ✅ <b>If {packageName} is private</b>, sorry, private packages are
+              not supported by repo.vercel.app at this time.
+            </p>
+            <p>
+              ❌ <b>If {packageName} is not private</b>, please{' '}
+              <a
+                href='https://github.com/macklinu/repo.vercel.app/issues/new'
+                className='no-underline underline-hover link black bg-light-blue pa1'
+              >
+                file an issue on repo.vercel.app
+              </a>
+              , as this is an application error.
+            </p>
+          </section>
+        </section>
+      )
+    case 404:
       return (
         <section className='f3 lh-copy'>
           <p data-testid='error-message'>
@@ -128,7 +163,8 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
           </section>
         </section>
       )
-    case ErrorType.UnknownError:
+    case 500:
+    default:
       return (
         <section className='f3 lh-copy'>
           <p data-testid='error-message'>
@@ -151,41 +187,3 @@ const ErrorComponent = ({ packageName, error }: ErrorComponentProps) => {
       )
   }
 }
-
-interface PackageNamePageProps {
-  packageName: string
-  error: ErrorType
-}
-
-const PackageNamePage = ({ packageName, error }: PackageNamePageProps) => (
-  <div className='sans-serif'>
-    <SharedHead>
-      <title>{packageName} | repo.vercel.app</title>
-    </SharedHead>
-    <main className='pa3 ph5-ns'>
-      <h1 className='f-headline-l f1 lh-solid'>Uh oh!</h1>
-      <ErrorComponent packageName={packageName} error={error} />
-    </main>
-  </div>
-)
-
-export const getServerSideProps: GetServerSideProps<
-  PackageNamePageProps,
-  { packageName: string[] }
-> = async ({ params }) => {
-  const packageName = params.packageName.join('/')
-  const packageResult = await getPackageRepo(packageName)
-  switch (packageResult.status) {
-    case 'success':
-      return {
-        redirect: { destination: packageResult.repo, permanent: true },
-        props: {},
-      }
-    case 'error':
-      return {
-        props: { packageName, error: packageResult.error },
-      }
-  }
-}
-
-export default PackageNamePage
