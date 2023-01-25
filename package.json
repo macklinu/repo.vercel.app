@@ -2,45 +2,44 @@
   "name": "repo.vercel.app",
   "description": "A service to help you find the repository for an npm package",
   "private": true,
+  "sideEffects": false,
   "version": "0.0.0-not-published",
   "license": "MIT",
   "homepage": "https://repo.vercel.app",
   "author": "Mackie Underdown <macklinu@gmail.com>",
   "repository": "macklinu/repo.vercel.app",
   "engines": {
-    "node": "~16"
+    "node": "~18"
   },
+  "packageManager": "pnpm@7.26.0",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "test": "jest",
-    "e2e": "start-test start 3000 cy:run",
-    "e2e:dev": "start-test dev 3000 cy:open",
-    "cy:open": "cypress open --config-file=cypress.config.ts",
-    "cy:run": "cypress run",
-    "lint": "next lint"
+    "dev": "remix dev",
+    "build": "remix build",
+    "test": "playwright test",
+    "lint": "eslint app/ tests/",
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "axios": "^0.27.2",
-    "git-url-parse": "^12.0.0",
-    "next": "^12.2.3",
+    "@remix-run/node": "^1.11.1",
+    "@remix-run/react": "^1.11.1",
+    "@remix-run/vercel": "^1.11.1",
+    "@vercel/node": "^2.6.2",
+    "git-url-parse": "^13.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tachyons": "4.12.0"
+    "tachyons": "4.12.0",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.30.0",
+    "@remix-run/dev": "^1.11.1",
+    "@remix-run/eslint-config": "^1.11.1",
+    "@remix-run/serve": "^1.11.1",
     "@types/git-url-parse": "^9.0.1",
-    "@types/jest": "^28.1.6",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "cypress": "^10.3.1",
-    "eslint": "^8.20.0",
-    "eslint-config-next": "^12.2.3",
-    "jest": "^28.1.3",
-    "prettier": "^2.7.1",
-    "start-server-and-test": "^1.14.0",
-    "ts-jest": "^28.0.7",
-    "typescript": "^4.7.4"
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "eslint": "^8.27.0",
+    "prettier": "^2.8.3",
+    "typescript": "^4.8.4"
   }
 }

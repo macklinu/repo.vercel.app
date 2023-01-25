@@ -7,10 +7,10 @@
 ## Develop
 
 - `nvm use` - use the Node.js version defined in `.nvmrc`
-- `yarn` - install dependencies
-- `yarn dev` - start the dev server
+- `pnpm install` - install dependencies
+- `pnpm dev` - start the dev server
 
-This is a [Next.js](https://nextjs.org/) application - check out [their docs](https://nextjs.org/docs/getting-started) for more info on the project structure.
+This is a [Remix](https://remix.run/) application - check out [their docs](https://remix.run/docs/en/v1) for more info on the project structure.
 
 ## Deploy
 
