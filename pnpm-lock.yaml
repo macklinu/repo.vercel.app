@@ -16,6 +16,9 @@ dependencies:
   '@vercel/node':
     specifier: ^2.14.1
     version: registry.npmjs.org/@vercel/node@2.14.1
+  '@vercel/remix':
+    specifier: ^1.16.0
+    version: registry.npmjs.org/@vercel/remix@1.16.0(react-dom@18.2.0)(react@18.2.0)
   git-url-parse:
     specifier: ^13.1.0
     version: registry.npmjs.org/git-url-parse@13.1.0
@@ -3280,6 +3283,23 @@ packages:
       - bufferutil
       - encoding
       - utf-8-validate
+    dev: false
+
+  registry.npmjs.org/@vercel/remix@1.16.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-81eVD8QJfWsozeCjn8SIRVaAb4txY32wDb3tzTS/gNdh970uaHBFJutrzD4dG5O/hhbp1imvXAJGQAKp0y4zEg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@vercel/remix/-/remix-1.16.0.tgz}
+    id: registry.npmjs.org/@vercel/remix/1.16.0
+    name: '@vercel/remix'
+    version: 1.16.0
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      '@remix-run/node': registry.npmjs.org/@remix-run/node@1.16.0
+      '@remix-run/server-runtime': registry.npmjs.org/@remix-run/server-runtime@1.16.0
+      isbot: registry.npmjs.org/isbot@3.6.10
+      react: registry.npmjs.org/react@18.2.0
+      react-dom: registry.npmjs.org/react-dom@18.2.0(react@18.2.0)
     dev: false
 
   registry.npmjs.org/@vercel/static-config@2.0.17:
@@ -6953,6 +6973,13 @@ packages:
     name: isarray
     version: 2.0.5
     dev: true
+
+  registry.npmjs.org/isbot@3.6.10:
+    resolution: {integrity: sha512-+I+2998oyP4oW9+OTQD8TS1r9P6wv10yejukj+Ksj3+UR5pUhsZN3f8W7ysq0p1qxpOVNbl5mCuv0bCaF8y5iQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/isbot/-/isbot-3.6.10.tgz}
+    name: isbot
+    version: 3.6.10
+    engines: {node: '>=12'}
+    dev: false
 
   registry.npmjs.org/isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz}
