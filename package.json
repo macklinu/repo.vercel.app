@@ -22,6 +22,7 @@
   "dependencies": {
     "@remix-run/node": "^1.16.0",
     "@remix-run/react": "^1.16.0",
+    "@remix-run/serve": "^1.16.0",
     "@remix-run/vercel": "^1.16.0",
     "@vercel/node": "^2.14.1",
     "git-url-parse": "^13.1.0",
@@ -34,7 +35,6 @@
     "@playwright/test": "^1.33.0",
     "@remix-run/dev": "^1.16.0",
     "@remix-run/eslint-config": "^1.16.0",
-    "@remix-run/serve": "^1.16.0",
     "@types/git-url-parse": "^9.0.1",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
