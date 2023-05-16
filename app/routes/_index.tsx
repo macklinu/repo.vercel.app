@@ -14,7 +14,7 @@ export default function IndexPage() {
         <span className='mr1' role='img' aria-label='Magnifying Glass'>
           🔎
         </span>
-        Find the repo for any npm package name. Just append
+        Find the repo for any npm package name. Just append{' '}
         <code className='dib code'>/:pkg-name</code> to the URL.
       </p>
       <h2 className='f2 lh-title'>Try It</h2>

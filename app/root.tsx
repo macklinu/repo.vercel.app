@@ -1,4 +1,4 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/node'
+import type { LinksFunction, V2_MetaFunction } from '@vercel/remix'
 import {
   Links,
   LiveReload,
@@ -11,11 +11,11 @@ import octocat from './octocat.css'
 import { OctocatCorner } from './OctocatCorner'
 import { usePageTitle } from './usePageTitle'
 
-export const meta: MetaFunction = () => ({
-  charset: 'utf-8',
-  title: 'repo.vercel.app',
-  viewport: 'width=device-width,initial-scale=1',
-})
+export const meta: V2_MetaFunction = () => [
+  { charSet: 'utf-8' },
+  { title: 'repo.vercel.app' },
+  { name: 'viewport', content: 'width=device-width,initial-scale=1' },
+]
 
 export const links: LinksFunction = () => [
   {
