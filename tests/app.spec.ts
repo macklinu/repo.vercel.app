@@ -6,6 +6,16 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle(/repo.vercel.app/)
 })
 
+test('displays help text', async ({ page }) => {
+  await page.goto('/')
+
+  await expect(
+    page.getByText(
+      /find the repo for any npm package name. just append \/:pkg-name to the url/i
+    )
+  ).toBeVisible()
+})
+
 const urls: [string, string][] = [
   ['/react', 'https://github.com/facebook/react'],
   ['/express', 'https://github.com/expressjs/express'],
