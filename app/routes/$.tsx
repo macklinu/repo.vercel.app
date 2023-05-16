@@ -1,5 +1,5 @@
-import type { LoaderArgs, V2_MetaFunction } from '@remix-run/node'
-import { json, redirect } from '@remix-run/node'
+import type { LoaderArgs, V2_MetaFunction } from '@vercel/remix'
+import { json, redirect } from '@vercel/remix'
 import {
   isRouteErrorResponse,
   useParams,

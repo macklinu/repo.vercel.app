@@ -4,12 +4,4 @@ import { installGlobals } from '@remix-run/node'
 
 installGlobals()
 
-export default createRequestHandler({
-  build,
-  mode: process.env.NODE_ENV,
-  getLoadContext() {
-    return {
-      nodeLoadContext: true,
-    }
-  },
-})
+export default createRequestHandler({ build, mode: process.env.NODE_ENV })
