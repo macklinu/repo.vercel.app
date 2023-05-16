@@ -12,10 +12,10 @@ dependencies:
     version: registry.npmjs.org/@remix-run/serve@1.16.0
   '@remix-run/vercel':
     specifier: ^1.16.0
-    version: registry.npmjs.org/@remix-run/vercel@1.16.0(@vercel/node@2.14.1)
+    version: registry.npmjs.org/@remix-run/vercel@1.16.0(@vercel/node@2.14.2)
   '@vercel/node':
-    specifier: ^2.14.1
-    version: registry.npmjs.org/@vercel/node@2.14.1
+    specifier: ^2.14.2
+    version: registry.npmjs.org/@vercel/node@2.14.2
   '@vercel/remix':
     specifier: ^1.16.0
     version: registry.npmjs.org/@vercel/remix@1.16.0(react-dom@18.2.0)(react@18.2.0)
@@ -2611,7 +2611,7 @@ packages:
       set-cookie-parser: registry.npmjs.org/set-cookie-parser@2.6.0
       source-map: registry.npmjs.org/source-map@0.7.4
 
-  registry.npmjs.org/@remix-run/vercel@1.16.0(@vercel/node@2.14.1):
+  registry.npmjs.org/@remix-run/vercel@1.16.0(@vercel/node@2.14.2):
     resolution: {integrity: sha512-JkYGmASVoyykWVjui4jQS1Wv6N9koRUQR+F+A/kvo0PBj4hlHMvO1Tqq8nsp46oXn8qP3CAasu1yyjfv7ZE3DA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@remix-run/vercel/-/vercel-1.16.0.tgz}
     id: registry.npmjs.org/@remix-run/vercel/1.16.0
     name: '@remix-run/vercel'
@@ -2621,7 +2621,7 @@ packages:
       '@vercel/node': ^1.8.3 || ^2.4.0
     dependencies:
       '@remix-run/node': registry.npmjs.org/@remix-run/node@1.16.0
-      '@vercel/node': registry.npmjs.org/@vercel/node@2.14.1
+      '@vercel/node': registry.npmjs.org/@vercel/node@2.14.2
     dev: false
 
   registry.npmjs.org/@remix-run/web-blob@3.0.4:
@@ -3256,10 +3256,10 @@ packages:
     version: 1.0.8
     dev: false
 
-  registry.npmjs.org/@vercel/node@2.14.1:
-    resolution: {integrity: sha512-9wtWyrsPNAy+UkLJvdUIFzpqAybkAmdap4nwfrgcNDQ4YsLHr+Wd11BWlHVeKL6Oqjny9N4YikEHdOEPjoIRtA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@vercel/node/-/node-2.14.1.tgz}
+  registry.npmjs.org/@vercel/node@2.14.2:
+    resolution: {integrity: sha512-BPuMVO5ocTic6rgFyFfDbhdRwBLOfnJ0OYTtfiPF+cY1MNuG86ADWtA+6b3vPhxHC3uumcWfrhwLd9OTSYNfKw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@vercel/node/-/node-2.14.2.tgz}
     name: '@vercel/node'
-    version: 2.14.1
+    version: 2.14.2
     dependencies:
       '@edge-runtime/vm': registry.npmjs.org/@edge-runtime/vm@2.0.0
       '@types/node': registry.npmjs.org/@types/node@14.18.33
@@ -3267,7 +3267,7 @@ packages:
       '@vercel/build-utils': registry.npmjs.org/@vercel/build-utils@6.7.2
       '@vercel/error-utils': registry.npmjs.org/@vercel/error-utils@1.0.8
       '@vercel/static-config': registry.npmjs.org/@vercel/static-config@2.0.17
-      async-listen: registry.npmjs.org/async-listen@1.2.0
+      async-listen: registry.npmjs.org/async-listen@3.0.0
       edge-runtime: registry.npmjs.org/edge-runtime@2.1.4
       esbuild: registry.npmjs.org/esbuild@0.14.47
       exit-hook: registry.npmjs.org/exit-hook@2.2.1
@@ -3592,16 +3592,17 @@ packages:
     hasBin: true
     dev: true
 
-  registry.npmjs.org/async-listen@1.2.0:
-    resolution: {integrity: sha512-CcEtRh/oc9Jc4uWeUwdpG/+Mb2YUHKmdaTf0gUr7Wa+bfp4xx70HOb3RuSTJMvqKNB1TkdTfjLdrcz2X4rkkZA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/async-listen/-/async-listen-1.2.0.tgz}
-    name: async-listen
-    version: 1.2.0
-    dev: false
-
   registry.npmjs.org/async-listen@2.0.3:
     resolution: {integrity: sha512-WVLi/FGIQaXyfYyNvmkwKT1RZbkzszLLnmW/gFCc5lbVvN/0QQCWpBwRBk2OWSdkkmKRBc8yD6BrKsjA3XKaSw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/async-listen/-/async-listen-2.0.3.tgz}
     name: async-listen
     version: 2.0.3
+    engines: {node: '>= 14'}
+    dev: false
+
+  registry.npmjs.org/async-listen@3.0.0:
+    resolution: {integrity: sha512-V+SsTpDqkrWTimiotsyl33ePSjA5/KrithwupuvJ6ztsqPvGv6ge4OredFhPffVXiLN/QUWvE0XcqJaYgt6fOg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/async-listen/-/async-listen-3.0.0.tgz}
+    name: async-listen
+    version: 3.0.0
     engines: {node: '>= 14'}
     dev: false
 
@@ -7113,7 +7114,7 @@ packages:
     dependencies:
       universalify: registry.npmjs.org/universalify@2.0.0
     optionalDependencies:
-      graceful-fs: registry.npmjs.org/graceful-fs@4.2.11
+      graceful-fs: registry.npmjs.org/graceful-fs@4.2.10
     dev: true
 
   registry.npmjs.org/jsx-ast-utils@3.3.3:
